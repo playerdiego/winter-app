@@ -74,8 +74,18 @@ class _Form extends StatelessWidget {
           const SizedBox(height: 20),
 
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, 'reset_password');
+            },
             child: const Text('¿Olvidaste la contraseña?', style: TextStyle(color: Colors.white),),
+          ),
+
+          const SizedBox(height: 20),
+
+          CheckboxListTile(
+            value: true, 
+            onChanged: (value) {},
+            title: const Text('Recordad mi contraseña'),
           ),
 
           const SizedBox(height: 20),
@@ -88,11 +98,19 @@ class _Form extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100))),
             onPressed: () {
               // Iniciar Sesión
+              Navigator.pushNamed(context, 'profile');
             },
             child: const Padding(
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
               child: Text('INICIAR SESIÓN', style: TextStyle(color: AppTheme.primaryColor)),
             )
+          ),
+
+          TextButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, 'register');
+            },
+            child: const Text('Crear una cuenta nueva', style: TextStyle(color: Colors.white),),
           ),
         ],
       ),
