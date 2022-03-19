@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:winter_app/router/app_router.dart';
 import 'package:winter_app/screens/screens.dart';
 import 'package:winter_app/themes/app_theme.dart';
 
@@ -12,20 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Winter',
       debugShowCheckedModeBanner: false,
-      initialRoute: 'login',
-      routes: {
-        'home': (_) => const HomeScreen(),
-
-        'login': (_) => const LoginScreen(),
-        'register': (_) => const RegisterScreen(),
-        'reset_password': (_) => const ResetPasswordScreen(),
-
-        'profile': (_) => const ProfileScreen(),
-        'news': (_) => const NewsScreen(),
-        'new_detail': (_) => const NewDetailScreen(),
-        'chat': (_) => const ChatScreen(),
-        'notifications': (_) => const NotificationsScreen() 
-      },
+      initialRoute: AppRouter.initialRoute,
+      routes: AppRouter.getRoutes(),
       theme: AppTheme.theme,
     );
   }
